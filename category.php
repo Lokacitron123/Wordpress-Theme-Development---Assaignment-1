@@ -49,36 +49,7 @@
 												)
 											);
 										?>
-										<!-- <ul>
-											<li class="page_item current_page_item">
-												<a href="">Blogg</a>
-											</li>
-											<li class="page_item">
-												<a href="">Exempelsida</a>
-											</li>
-											<li class="page_item">
-												<a href="">Kontakt</a>
-											</li>
-											<li class="page_item page_item_has_children">
-												<a href="">Om mig</a>
-												<ul class="children">
-													<li class="page_item">
-														<a href="">Intressen</a>
-													</li>
-													<li class="page_item page_item_has_children">
-														<a href="">Portfolio</a>
-														<ul class="children">
-															<li class="page_item">
-																<a href="">Projekt 1</a>
-															</li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-											<li class="page_item">
-												<a href="">Startsida</a>
-											</li>
-										</ul> -->
+									
 									</li>
 									<li>
 										<h2>Arkiv</h2>

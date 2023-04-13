@@ -19,16 +19,25 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
-						<a class="logo" href="index.html">Labb 1</a>
+						<a class="logo" href="<?php echo home_url();?>">Labb 1</a>
 					</div>
 					<div class="col-sm-6 hidden-xs">
-						<form id="searchform" class="searchform">
-							<div>
+						
+						
+
+						<form role="search" action="<?php echo home_url('/'); ?>" id="searchform" class="searchform">
+
+                            <div>
 								<label class="screen-reader-text">Sök efter:</label>
-								<input type="text" />
-								<input type="submit" value="Sök" />
+
+								<input type="search" value="<?php echo get_search_query();?>" name="s" title="<?php echo esc_attr_x('sök efter:', 'h3');?>" placeholder="<?php echo esc_attr_x('sök efter...', 'placeholder'); ?>"/>
+
+								<input type="submit" value="<?php echo esc_attr_x('sök', 'submit button');?>" />
 							</div>
-						</form>
+
+                          </form>
+
+
 					</div>
 					<div class="col-xs-4 text-right visible-xs">
 						<div class="mobile-menu-wrap">

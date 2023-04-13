@@ -1,6 +1,12 @@
+<?php
+/*
+Template Name: Arkiv
+*/
+?>
 <ul class="meta">
 	 <li>
-		<i class="fa fa-calendar"></i> <?php the_date(); ?>
+		<!-- varför funkar det inte bara med the_date?--> 
+		<i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
 	</li>
 	<li>
 		<i class="fa fa-user"></i> <a href="forfattare.html"><?php the_author(); ?></a>

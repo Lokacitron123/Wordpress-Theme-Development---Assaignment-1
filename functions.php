@@ -14,12 +14,10 @@ add_action('wp_enqueue_scripts', 'load_custom_styles');
 
 function load_custom_scripts() {
 
-    wp_deregister_script('jquery');
-    wp_register_script('jquery', get_template_directory_uri() . "/assets/javascript/jquery.js");
-    wp_enqueue_script('jquery');
+    
 
-    wp_register_script('custom-script', get_template_directory_uri() . "/assets/javascript/script.js");
-    wp_enqueue_script('custom-script', array('jquery'));
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/javascript/jquery.js');
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/javascript/script.js', '', false, true);
 
 
 
@@ -28,12 +26,16 @@ function load_custom_scripts() {
 add_action('wp_enqueue_scripts', 'load_custom_scripts');
 
 
-// Unlocking menu options
-function custom_menus () {
+ 
+ function custom_menus () {
 
-    $locations = array(
-        'primary' => "Header Main Menu",
-        'side' => "Side Menu"
+     $locations = array(
+         'primary' => "Header Main Menu",
+         'side' => "Side Menu",
+         'Pages' => "Pages Menu",
+         'Archive' => "Archive Menu",
+         'Categories' => "Category Menu"
+        
     );
     
     register_nav_menus($locations);
@@ -49,4 +51,11 @@ add_theme_support('custom-background', [
 ]);
 
 
-?>
+// Unlocking widget options
+add_theme_support('widgets');
+
+
+
+
+
+
