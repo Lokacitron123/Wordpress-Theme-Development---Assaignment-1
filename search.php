@@ -10,6 +10,7 @@
                         <div class="row">
                             <div id="primary" class="col-xs-12 col-md-9">
 
+                            <h1><?php echo 'Sökresultat för: '; the_search_query();?></h1>
                             <?php if( have_posts() ): while(have_posts() ): the_post();?>
 
                             <article>
@@ -22,7 +23,9 @@
 
                         <?php endwhile; else: endif;?>
 
-
+                        <nav class="navigation pagination">
+							<?php echo paginate_links(); ?>
+						</nav>
                             
                         </div>  
                     </div>

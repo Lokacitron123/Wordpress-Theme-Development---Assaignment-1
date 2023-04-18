@@ -12,107 +12,68 @@
 						<h1><?php wp_title($sep = '');?></h1>
 						
 						<?php get_template_part('includes/parts/part', 'theloop');?>
+
+
+						<!-- alternativ 1 -->
 						<nav class="navigation pagination">
-							<?php the_posts_pagination();?>
+						<?php previous_posts_link(); ?> 
+						<?php next_posts_link(); ?>
+						</nav> 
+
+
+
+						<!-- alternativ 2 -->
+						<nav class="navigation pagination">
+							<?php
+								global $wp_query;
+
+								$big = 9999999999999;
+								echo paginate_links( 
+									array(
+										'base' => str_replace($big, '%#%', esc_url( get_pagenum_link( $big))),
+										'format' => '?paged=%#%',
+										'current' => max(1, get_query_var('paged')),
+										'total' => $wp_query->max_num_pages
+									)
+								);
+							?>
+						</nav> 
+							
+						<!-- alternativ 3 -->
+						<nav class="navigation pagination">
+							<?php echo paginate_links(); ?>
 						</nav>
-							<!-- <nav class="navigation pagination">
-								<h2 class="screen-reader-text">Inläggsnavigering</h2>
-								<a class="prev page-numbers" href="">Föregående</a>
-								<span class="page-numbers current">1</span>
-								<a class="page-numbers" href="">2</a>
-								<a class="next page-numbers" href="">Nästa</a>
-							</nav> -->
+						
 						</div>
 						<aside id="secondary" class="col-xs-12 col-md-3">
 							<div id="sidebar">
 								<ul>
 									<li>
-										<form id="searchform" class="searchform">
-											<div>
-												<label class="screen-reader-text">Sök efter:</label>
-												<input type="text" />
-												<input type="submit" value="Sök" />
-											</div>
-										</form>
+									<form role="search" action="<?php echo home_url('/'); ?>" id="searchform" class="searchform">
+
+									<div>
+										<label class="screen-reader-text">Sök efter:</label>
+
+										<input type="search" value="<?php echo get_search_query();?>" name="s" title="<?php echo esc_attr_x('sök efter:', 'h3');?>" placeholder="<?php echo esc_attr_x('sök efter...', 'placeholder'); ?>"/>
+
+										<input type="submit" value="<?php echo esc_attr_x('sök', 'submit button');?>" />
+									</div>
+
+									</form>
 									</li>
 								</ul>
 								<ul role="navigation">
 									<li class="pagenav">
-										<h2>Sidor</h2>
-										<?php
-											wp_nav_menu(
-												array(
-													'menu' => 'Pages',
-													'container' => '',
-													'theme_location' => 'Pages',
-													'items_wrap' => '<ul id="" class="">%3$s</ul>'
-												)
-											);
-										?>
-										<!-- <ul>
-											<li class="page_item current_page_item">
-												<a href="">Blogg</a>
-											</li>
-											<li class="page_item">
-												<a href="">Exempelsida</a>
-											</li>
-											<li class="page_item">
-												<a href="">Kontakt</a>
-											</li>
-											<li class="page_item page_item_has_children">
-												<a href="">Om mig</a>
-												<ul class="children">
-													<li class="page_item">
-														<a href="">Intressen</a>
-													</li>
-													<li class="page_item page_item_has_children">
-														<a href="">Portfolio</a>
-														<ul class="children">
-															<li class="page_item">
-																<a href="">Projekt 1</a>
-															</li>
-														</ul>
-													</li>
-												</ul>
-											</li>
-											<li class="page_item">
-												<a href="">Startsida</a>
-											</li>
-										</ul> -->
+																	
+										<?php  dynamic_sidebar('pages area');?>
 									</li>
 									<li>
-										<h2>Arkiv</h2>
-										<?php
-											wp_nav_menu(
-												array(
-													'menu' => 'Archive',
-													'container' => '',
-													'theme_location' => 'Archive',
-													'items_wrap' => '<ul id="" class="">%3$s</ul>'
-												)
-											);
-										?>
+										
+										<?php  dynamic_sidebar('archive area');?> 
 									</li>
 									<li class="categories">
-										<h2>Kategorier</h2>
-										<?php
-											wp_nav_menu(
-												array(
-													'menu' => 'Categories',
-													'container' => '',
-													'theme_location' => 'Categories',
-													'items_wrap' => '<ul id="" class="">%3$s</ul>'
-												)
-											);
-										?>
-										<!-- <ul>
-											<li class="cat-item">
-												<a href="">Natur</a> (1)
-											</li>
-											<li class="cat-item">
-												<a href="">Okategoriserade</a> (3)
-											</li>
-										</ul> -->
+										
+										<?php  dynamic_sidebar('category area');?> 
 									</li>
 								</ul>
 							</div>

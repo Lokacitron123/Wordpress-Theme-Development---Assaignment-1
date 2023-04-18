@@ -15,25 +15,23 @@
 						<nav class="navigation pagination">
 							<?php the_posts_pagination();?>
 						</nav>
-							<!-- <nav class="navigation pagination">
-								<h2 class="screen-reader-text">Inläggsnavigering</h2>
-								<a class="prev page-numbers" href="">Föregående</a>
-								<span class="page-numbers current">1</span>
-								<a class="page-numbers" href="">2</a>
-								<a class="next page-numbers" href="">Nästa</a>
-							</nav> -->
+							
 						</div>
 						<aside id="secondary" class="col-xs-12 col-md-3">
 							<div id="sidebar">
 								<ul>
 									<li>
-										<form id="searchform" class="searchform">
-											<div>
-												<label class="screen-reader-text">Sök efter:</label>
-												<input type="text" />
-												<input type="submit" value="Sök" />
-											</div>
-										</form>
+									<form role="search" action="<?php echo home_url('/'); ?>" id="searchform" class="searchform">
+
+									<div>
+										<label class="screen-reader-text">Sök efter:</label>
+
+										<input type="search" value="<?php echo get_search_query();?>" name="s" title="<?php echo esc_attr_x('sök efter:', 'h3');?>" placeholder="<?php echo esc_attr_x('sök efter...', 'placeholder'); ?>"/>
+
+										<input type="submit" value="<?php echo esc_attr_x('sök', 'submit button');?>" />
+									</div>
+
+									</form>
 									</li>
 								</ul>
 								<ul role="navigation">
@@ -76,14 +74,7 @@
 												)
 											);
 										?>
-										<!-- <ul>
-											<li class="cat-item">
-												<a href="">Natur</a> (1)
-											</li>
-											<li class="cat-item">
-												<a href="">Okategoriserade</a> (3)
-											</li>
-										</ul> -->
+									
 									</li>
 								</ul>
 							</div>

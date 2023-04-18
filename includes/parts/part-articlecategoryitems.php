@@ -9,7 +9,7 @@ Template Name: Arkiv
 		<i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
 	</li>
 	<li>
-		<i class="fa fa-user"></i> <a href="forfattare.html"><?php the_author(); ?></a>
+		<i class="fa fa-user"></i> <a href=""><?php the_author_posts_link(); ?></a>
 	</li>
 	<li>
 		<i class="fa fa-tag">
@@ -19,7 +19,7 @@ Template Name: Arkiv
 				
 				
 					<a href="<php echo get_category_link();?>">
-						<?php echo $category->name;?>
+						<?php echo $category->name ;?> 
 					</a>
 				
 				<?php endforeach;?>	
