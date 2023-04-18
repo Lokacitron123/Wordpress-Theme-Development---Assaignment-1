@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title><?php wp_title();?></title>
+	<title><?php wp_title('');?></title>
 	
 	
 	<?php
@@ -19,7 +19,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
-						<a class="logo" href="<?php echo home_url();?>"></a>
+						<a class="logo" href="<?php echo home_url();?>">Labb 1</a>
 					</div>
 					<div class="col-sm-6 hidden-xs">
 						
