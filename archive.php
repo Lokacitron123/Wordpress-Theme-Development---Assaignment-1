@@ -17,7 +17,6 @@ Template Name: Arkiv
                     <div class="container">
                         <div class="row">
                             <div id="primary" class="col-xs-12 col-md-9">
-                                adasd
                             <h1><?php wp_title($sep = '');?></h1>
                             <?php get_template_part('includes/parts/part', 'theloop');?>
                             <nav class="navigation pagination">

@@ -12,15 +12,10 @@
 						<?php get_template_part('includes/parts/part', 'theloop');?>
 
 
-						<!-- alternativ 1 -->
-						<nav class="navigation pagination">
-						<?php previous_posts_link(); ?> 
-						<?php next_posts_link(); ?>
-						</nav> 
+						
 
 
-
-						<!-- alternativ 2 -->
+						
 						<nav class="navigation pagination">
 							<?php
 								global $wp_query;
@@ -37,10 +32,6 @@
 							?>
 						</nav> 
 							
-						<!-- alternativ 3 -->
-						<nav class="navigation pagination">
-							<?php echo paginate_links(); ?>
-						</nav>
 						
 						</div>
 						<aside id="secondary" class="col-xs-12 col-md-3">
@@ -61,44 +52,16 @@
 									</li>
 								</ul>
 								<ul role="navigation">
-									<li class="pagenav">
-										<h2>Sidor</h2>
-										<?php
-											wp_nav_menu(
-												array(
-													'menu' => 'Pages',
-													'container' => '',
-													'theme_location' => 'Pages',
-													'items_wrap' => '<ul id="" class="">%3$s</ul>'
-												)
-											);
-										?>
+									<li class="pagenav">						
+										<?php  dynamic_sidebar('pages-area');?>
 									</li>
 									<li>
-										<h2>Arkiv</h2>
-										<?php
-											wp_nav_menu(
-												array(
-													'menu' => 'Archive',
-													'container' => '',
-													'theme_location' => 'Archive',
-													'items_wrap' => '<ul id="" class="">%3$s</ul>'
-												)
-											);
-										?>
+										
+										<ul><?php  dynamic_sidebar('archive-area');?> 
 									</li>
 									<li class="categories">
-										<h2>Kategorier</h2>
-										<?php
-											wp_nav_menu(
-												array(
-													'menu' => 'Categories',
-													'container' => '',
-													'theme_location' => 'Categories',
-													'items_wrap' => '<ul id="" class="">%3$s</ul>'
-												)
-											);
-										?>
+										
+										<?php  dynamic_sidebar('category-area');?> 
 									</li>
 								</ul>
 							</div>

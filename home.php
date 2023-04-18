@@ -14,15 +14,10 @@
 						<?php get_template_part('includes/parts/part', 'theloop');?>
 
 
-						<!-- alternativ 1 -->
-						<nav class="navigation pagination">
-						<?php previous_posts_link(); ?> 
-						<?php next_posts_link(); ?>
-						</nav> 
+					
 
 
-
-						<!-- alternativ 2 -->
+						
 						<nav class="navigation pagination">
 							<?php
 								global $wp_query;
@@ -39,41 +34,36 @@
 							?>
 						</nav> 
 							
-						<!-- alternativ 3 -->
-						<nav class="navigation pagination">
-							<?php echo paginate_links(); ?>
-						</nav>
-						
+					
 						</div>
 						<aside id="secondary" class="col-xs-12 col-md-3">
-							<div id="sidebar">
+						<div id="sidebar">
 								<ul>
 									<li>
 									<form role="search" action="<?php echo home_url('/'); ?>" id="searchform" class="searchform">
 
-									<div>
-										<label class="screen-reader-text">Sök efter:</label>
+                            <div>
+								<label class="screen-reader-text">Sök efter:</label>
 
-										<input type="search" value="<?php echo get_search_query();?>" name="s" title="<?php echo esc_attr_x('sök efter:', 'h3');?>" placeholder="<?php echo esc_attr_x('sök efter...', 'placeholder'); ?>"/>
+								<input type="search" value="<?php echo get_search_query();?>" name="s" title="<?php echo esc_attr_x('sök efter:', 'h3');?>" placeholder="<?php echo esc_attr_x('sök efter...', 'placeholder'); ?>"/>
 
-										<input type="submit" value="<?php echo esc_attr_x('sök', 'submit button');?>" />
-									</div>
+								<input type="submit" value="<?php echo esc_attr_x('sök', 'submit button');?>" />
+							</div>
 
-									</form>
+                          </form>
 									</li>
 								</ul>
 								<ul role="navigation">
-									<li class="pagenav">
-																	
-										<?php  dynamic_sidebar('pages area');?>
+									<li class="pagenav">						
+										<?php  dynamic_sidebar('pages-area');?>
 									</li>
 									<li>
 										
-										<?php  dynamic_sidebar('archive area');?> 
+										<ul><?php  dynamic_sidebar('archive-area');?> 
 									</li>
 									<li class="categories">
 										
-										<?php  dynamic_sidebar('category area');?> 
+										<?php  dynamic_sidebar('category-area');?> 
 									</li>
 								</ul>
 							</div>

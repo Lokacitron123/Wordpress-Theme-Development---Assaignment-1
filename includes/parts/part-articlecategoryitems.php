@@ -5,7 +5,7 @@ Template Name: Arkiv
 ?>
 <ul class="meta">
 	 <li>
-		<!-- varför funkar det inte bara med the_date?--> 
+		<!-- varför funkar det inte bara med the_date?-->
 		<i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
 	</li>
 	<li>
@@ -13,17 +13,10 @@ Template Name: Arkiv
 	</li>
 	<li>
 		<i class="fa fa-tag">
-			<?php 
-				$categories = get_the_category();
-				foreach($categories as $category):?>
-				
-				
-					<a href="<php echo get_category_link();?>">
-						<?php echo $category->name ;?> 
-					</a>
-				
-				<?php endforeach;?>	
-		</i>				
-	</li> 
+			<?php
+				the_category(', ');
+			?>
+		</i>
+	</li>
 </ul>
 

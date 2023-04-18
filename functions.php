@@ -1,7 +1,7 @@
 <?php
 
 
-
+// enquing style sheets
 
 function load_custom_styles () {
     wp_enqueue_style('bootstrap', get_stylesheet_directory_uri() . "/assets/css/bootstrap.css", array(), false, 'all');
@@ -11,7 +11,7 @@ function load_custom_styles () {
 
 add_action('wp_enqueue_scripts', 'load_custom_styles');
 
-
+// enquing script files
 function load_custom_scripts() {
 
     wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/javascript/jquery.js');
@@ -21,7 +21,7 @@ function load_custom_scripts() {
 
 add_action('wp_enqueue_scripts', 'load_custom_scripts');
 
-
+// adding custom menus
  
  function custom_menus () {
 
@@ -154,20 +154,4 @@ function widgetareas () {
 
 add_action('init', 'widgetareas');
 
-
-// adding classes to pagination links
-add_filter('next_posts_link_attributes', 'posts_next_attributes');
-add_filter('previous_posts_link_attributes', 'posts_previous_attributes');
-
-function posts_next_attributes() {
-    return 'class="next page-numbers"';
-}
-function posts_previous_attributes() {
-    return 'class="prev page-numbers"';
-}
-
-
-
-
-// Widget areas
 
